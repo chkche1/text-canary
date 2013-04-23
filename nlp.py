@@ -10,15 +10,6 @@ import analyzer
 lemmatizer = nltk.stem.wordnet.WordNetLemmatizer()
 analyzer = analyzer.Analyzer()
 TWIT_TAGGER_PATH = './twit-tagger/runTagger.sh'
-STOP_FILE_PATH = './TopicWords/'
-
-# Twitter tagset
-TWITTER_NOMINAL_TAGS = ['N','O','^','S','Z']
-TWITTER_SPECIFIC_TAGS = ['@','#','~','U','E']
-TWITTER_MISC_TAGS = ['$',',','G']
-TWITTER_CLOSED_CLASS_TAGS = ['D','P','&','T','X']
-TWITTER_OPEN_CLASS_TAGS = ['V','A','R','!']
-TWITTER_OTHER_TAGS = ['L','M','Y']
 
 def twit_pos(text, batch=False):
 	""" Performs POS tagging for Tweets
@@ -71,11 +62,10 @@ def reduce_form(pairs):
 		ret[idx][0] = lemmatizer.lemmatize(tok,tag).lower()
 	return ret
 
-def preprocess(text, twit=False, batch=False):
+def preprocess(text, twit=False):
 	""" Preprocess text for sentiment analysis
 	"""
 	tagger = twit_pos if twit else postag
-	print "twit:", twit
 	toks, pos = tagger(text)
 	tokens = [spell.correct(t) for t in toks]
 	pairs = map(list, zip(tokens,pos))
