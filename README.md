@@ -90,3 +90,6 @@ In Proceedings of NAACL 2013.
 
 + Due to the way it is designed, scoop is most naturally invoked as a script (run when __name__=='__main__'). Additionally, invoking scoop requires a "-m" tag. Therefore, the system spawns a new process (a broker) that handles workers. 
 
++ Running test.py is actually a painfully long process. To check for correctness, take a look at the values in test.py and just run it from a browser to see if the numbers matched up
+
+
