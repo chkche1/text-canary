@@ -3,6 +3,10 @@ text-canary
 
 A simple web API service that helps people handle text.
 
+# Use guide
+
+Go to http://localhost:5000/, this gives you a chance to upload text files. All the API calls and their corresponding URLs are all in server.py (the URLs are pretty straightforward). Enjoy!
+
 # Use Case
 
 + twitter pos tagging
