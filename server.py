@@ -17,27 +17,20 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 def upload_page():
-    return """
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-             <input type=submit value=Upload>
-    </form>
-    <p>%s</p>
-    """ % "<br>".join(os.listdir(app.config['UPLOAD_FOLDER'],))
+    uploaded_files = os.listdir(app.config['UPLOAD_FOLDER'],)
+    return render_template('upload_page.html', uploaded_files = uploaded_files)
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    if request.method == 'POST':
-        fi = request.files['file']
-        if fi and allowed_file(fi.filename):
-            filename = secure_filename(fi.filename)
-            fi.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return upload_page()
+    # if request.method == 'POST':
+    #     fi = request.files['file']
+    #     if fi and allowed_file(fi.filename):
+    #         filename = secure_filename(fi.filename)
+    #         fi.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    #         return upload_page()
 
-    return upload_page()
+    # return upload_page()
+    return render_template('index.html')
 
 @app.route('/remove/<filename>')
 def remove_file(filename=None):
