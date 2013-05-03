@@ -1,8 +1,7 @@
-        <form action="" method="post">
-                      <p><input type=text name=raw style="width:500px; height:400px;">
-                      <p><input type=submit value=Submit>
-        </form>
-
-
-
-
+{% extends "application.html" %}
+{% block body %}
+<form action="" method="post">
+  <p><input type=text name=raw style="width:500px; height:400px;">
+  <p><input type=submit value=Submit>
+</form>
+{% endblock %}
