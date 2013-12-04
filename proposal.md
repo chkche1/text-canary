@@ -34,11 +34,11 @@ It's also a great learning opportunity to learn about os-related libraries, serv
 
 ## Python Dependencies
 
-- flask
-- twisted (to support async callbacks)
-- nltk
-- scoop
-- paramiko
+- [flask] (http://flask.pocoo.org/)
+- [twisted] (http://twistedmatrix.com/trac/) (to support async callbacks)
+- [nltk] (http://nltk.org/)
+- [scoop] (https://code.google.com/p/scoop/)
+- [paramiko] (https://github.com/paramiko/paramiko)
 
 ## Non-Python Dependencies
 
